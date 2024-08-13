@@ -1,25 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Tutoriels from './components/Tutoriels';
+import AjouterTutoriel from './components/AjouterTutoriel';
+import AjouterImage from './components/AjouterImage';
+import AfficherImages from './components/AfficherImages';
+
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <Router>
+            <div className="App">
+                <header>
+                    <h1>Blog Tutoriel</h1>
+                </header>
+                <nav>
+                    <ul>
+                        <li><a href="/">Accueil</a></li>
+                        <li><a href="/ajouter">Ajouter un Tutoriel</a></li>
+                    </ul>
+                </nav>
+                <main>
+                    <Routes>
+                        <Route path="/" element={<Tutoriels />} />
+                        <Route path="/ajouter" element={<AjouterTutoriel />} />
+                        <Route path="/ajouterImage" element={<AjouterImage />} />
+                        <Route path="/AfficherImages" element={<AfficherImages />} />
+                        
+                    </Routes>
+                </main>
+            </div>
+        </Router>
+    );
 }
 
 export default App;
