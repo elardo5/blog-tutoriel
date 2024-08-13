@@ -20,7 +20,7 @@ function AjouterImage({ tutorielId }) {
         formData.append('image', image);
         formData.append('tutoriel_id', tutorielId);
 
-        axios.post('http://localhost/blog-tutoriel/upload.php', formData, {
+        axios.post('http://blog-tutoriel-elardo.lovestoblog.com/upload.php', formData, {
             headers: {
                 'Content-Type': 'multipart/form-data',
             },

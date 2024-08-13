@@ -30,7 +30,7 @@ function AjouterTutoriel() {
             formData.append('image', image);
         }
 
-        axios.post('http://localhost/blog-tutoriel/tutoriels.php', formData, {
+        axios.post('http://blog-tutoriel-elardo.lovestoblog.com/tutoriels.php', formData, {
             headers: {
                 'Content-Type': 'multipart/form-data',
             },

@@ -9,7 +9,7 @@ function Commentaires({ tutorielId }) {
 
     useEffect(() => {
         setLoading(true);
-        axios.get(`http://localhost/votre_projet/commentaires.php?tutoriel_id=${tutorielId}`)
+        axios.get(`http://blog-tutoriel-elardo.lovestoblog.com/commentaires.php?tutoriel_id=${tutorielId}`)
             .then(response => {
                 setCommentaires(response.data);
                 setLoading(false);
