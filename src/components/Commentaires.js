@@ -8,7 +8,7 @@ function Commentaires({ tutorielId }) {
     const [commentaires, setCommentaires] = useState([]);
 
     useEffect(() => {
-        axios.get(`http://localhost/blog-tutoriel/commentaires.php?tutoriel_id=${tutorielId}`)
+        axios.get(`/api/commentaires.php?tutoriel_id=${tutorielId}`)
             .then(response => setCommentaires(response.data))
             .catch(error => console.error('Erreur:', error));
     }, [tutorielId]);

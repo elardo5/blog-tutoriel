@@ -8,7 +8,7 @@ function Tutoriels() {
 
     useEffect(() => {
         // Charger les tutoriels
-        axios.get('http://blog-tutoriel-elardo.lovestoblog.com/tutoriels.php')
+        axios.get('/api/tutoriels.php')
             .then(response => {
                 setTutoriels(response.data);
                 // Charger les commentaires pour chaque tutoriel
@@ -20,7 +20,7 @@ function Tutoriels() {
     }, []);
 
     const fetchCommentaires = (tutorielId) => {
-        axios.get(`http://blog-tutoriel-elardo.lovestoblog.com/commentaires.php?tutoriel_id=${tutorielId}`)
+        axios.get(`/api/commentaires.php?tutoriel_id=${tutorielId}`)
             .then(response => setCommentaires(prevState => ({
                 ...prevState,
                 [tutorielId]: response.data
@@ -30,7 +30,7 @@ function Tutoriels() {
 
     const handleCommentSubmit = (e, tutorielId) => {
         e.preventDefault();
-        axios.post('http://blog-tutoriel-elardo.lovestoblog.com/commentaires.php', {
+        axios.post('/api/commentaires.php', {
             tutoriel_id: tutorielId,
             commentaire: commentaire
         })
@@ -51,7 +51,7 @@ function Tutoriels() {
                     <p>{tutoriel.description}</p>
                     {tutoriel.images && (
                         <img 
-                            src={`http://blog-tutoriel-elardo.lovestoblog.com/uploads/${tutoriel.images}`} 
+                            src={`/api/uploads/${tutoriel.images}`} 
                             alt={`Image pour ${tutoriel.titre}`} 
                             width="200" 
                             height="auto" 

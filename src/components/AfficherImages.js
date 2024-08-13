@@ -10,7 +10,7 @@ function AfficherImages({ tutorielId }) {
 
     useEffect(() => {
         setLoading(true);
-        axios.get(`http://blog-tutoriel-elardo.lovestoblog.com/images.php?tutoriel_id=${tutorielId}`)
+        axios.get(`/api/images.php?tutoriel_id=${tutorielId}`)
             .then(response => {
                 if (response.data.length > 0) {
                     setImage(response.data[0]); // Prendre la première image
@@ -30,7 +30,7 @@ function AfficherImages({ tutorielId }) {
             return;
         }
 
-        axios.post('http://blog-tutoriel-elardo.lovestoblog.com/commentaires.php', {
+        axios.post('/api/commentaires.php', {
             tutoriel_id: tutorielId,
             contenu: commentaire
         })
@@ -54,7 +54,7 @@ function AfficherImages({ tutorielId }) {
             <h3>Image</h3>
             {image ? (
                 <img 
-                    src={`http://blog-tutoriel-elardo.lovestoblog.com/${image.chemin}`} 
+                    src={`/api/${image.chemin}`} 
                     alt={`Image du tutoriel ${tutorielId}`} 
                     width="200" // Ajustez la largeur selon vos besoins
                     height="auto" // Ajustez la hauteur pour conserver les proportions
