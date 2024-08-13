@@ -44,7 +44,7 @@ function Tutoriels() {
 
     return (
         <div>
-            <h1>Tutoriels</h1>
+            <h1>Tutoriels elardo pro</h1>
             {tutoriels.map(tutoriel => (
                 <div key={tutoriel.id}>
                     <h2>{tutoriel.titre}</h2>
